@@ -13,8 +13,8 @@ export default function App() {
   const [downloadStatus, setDownloadStatus] = React.useState("NOTSTARTED");
   const [downloadProgress, setDownloadProgress] = React.useState(0);
 
-  const uri = "http://www.africau.edu/images/default/sample.pdf";
-  const fileName = "sampletest.pdf";
+  const uri = "https://www.clickdimensions.com/links/TestPDFfile.pdf";
+  const fileName = "sampleNew.pdf";
 
   const callback = (downloadProgress) => {
     const progress =
