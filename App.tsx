@@ -14,7 +14,7 @@ export default function App() {
   const [downloadProgress, setDownloadProgress] = React.useState(0);
 
   const uri = "http://www.africau.edu/images/default/sample.pdf";
-  const fileName = "sample.pdf";
+  const fileName = "sampletest.pdf";
 
   const callback = (downloadProgress) => {
     const progress =
@@ -23,9 +23,15 @@ export default function App() {
     setDownloadProgress(progress);
   };
 
+  async function checkAvail() {
+    const { isAvailable } = await checkFileIsAvailable(fileName);
+    if (isAvailable) {
+      setDownloadStatus("FINISHED");
+    }
+  }
+
   React.useEffect(() => {
-    checkFileIsAvailable(fileName);
-    setDownloadStatus("FINISHED");
+    checkAvail();
   }, [uri]);
 
   return (
